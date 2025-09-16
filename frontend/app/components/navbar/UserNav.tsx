@@ -1,9 +1,10 @@
 'use client'
-
+import useLoginModal from '@/app/hooks/useLoginModal'
 import { useState } from 'react'
 import MenuLink from './MenuLink'
 
 const UserNav = () => {
+    const loginModal = useLoginModal()
     const [isOpen, setIsOpen] = useState(false)
     return (
         <>
@@ -24,7 +25,13 @@ const UserNav = () => {
 
                 {isOpen && (
                     <div className="w-[220px] absolute top-[60px] right-0 bg-white border rounded-xl shadow-md flex flex-col cursor-pointer">
-                        <MenuLink label='Login' onClick={() => console.log('Clicked 1')} />
+                        <MenuLink
+                            label='Log in'
+                            onClick={() => {
+                                setIsOpen(false);
+                                loginModal.open();
+                            }}
+                        />
                         <MenuLink label='Signup' onClick={() => console.log('Clicked 2')} />
                     </div>
                 )}
