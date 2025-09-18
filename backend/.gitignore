@@ -3,6 +3,7 @@
 .env.local
 .env.production
 .env.dev
+env/
 
 # Archivos de configuración temporales
 *.log
