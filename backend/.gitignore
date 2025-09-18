@@ -5,6 +5,8 @@
 .env.dev
 env/
 
+
+
 # Archivos de configuración temporales
 *.log
 *.tmp
