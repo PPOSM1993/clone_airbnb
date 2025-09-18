@@ -1,0 +1,19 @@
+# Variables de entorno
+.env
+.env.local
+.env.production
+.env.dev
+env/
+
+
+
+# Archivos de configuración temporales
+*.log
+*.tmp
+
+# Carpeta de dependencias (por ejemplo para Node)
+node_modules/
+
+# Archivos de Python compilados
+__pycache__/
+*.pyc
