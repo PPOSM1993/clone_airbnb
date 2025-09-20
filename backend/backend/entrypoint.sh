@@ -1,15 +1,17 @@
 #!/bin/sh
-# entrypoint.sh
 
-echo "Esperando a que la base de datos esté lista..."
+if [ "$DATABASE" = "postgres" ] 
+then
+    echo "Check if database is running..."
 
-while ! nc -z db 5432; do
-  sleep 0.1
-done
+    while ! nc -z $SQL_HOST $SQL_PORT; do
+        sleep 0.1
+    done
 
-echo "Base de datos lista, ejecutando migraciones..."
+    echo "The database is up and running :-D"
+fi
+
+python manage.py makemigrations
 python manage.py migrate
 
-echo "Iniciando servidor Django..."
-exec python manage.py runserver 0.0.0.0:8000
-
+exec "$@"
